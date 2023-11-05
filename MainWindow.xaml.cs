@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Linq;
 namespace Keyboard
 {
     internal partial class MainWindow : Window
@@ -80,14 +81,60 @@ namespace Keyboard
             string text = "DSA";
             return text;
         }
-
         private void UpdateStatistics()
         {
-            // обновление статистики, такой как скорость и количество ошибок
+            if (isSessionActive)
+            {
+                TimeSpan elapsedTime = DateTime.Now - startTime;
+                int correctCharacters = CalculateCorrectCharacters(typedText, generatedText);
+                double speed2 = correctCharacters / elapsedTime.TotalMinutes;
+                int errors = typedText.Length - correctCharacters;
+                speed.Text = speed2.ToString();
+                fails.Text = errors.ToString();
+            }
         }
         private void HighlightKey(Key key)
         {
-            // подсветка нажатой клавиши на виртуальной клавиатуре
+            ClearHighlight(KeyboardGrid);
+            string keyName = key.ToString();
+            Border keyBorder = FindBorderByName(KeyboardGrid, keyName);
+            if (keyBorder != null)
+            {
+                keyBorder.Background = Brushes.Yellow;
+            }
+        }
+        private void ClearHighlight(Panel panel)
+        {
+            foreach (var child in panel.Children)
+            {
+                if (child is Border border)
+                {
+                    border.Background = Brushes.White;
+                }
+                else if (child is Panel childPanel)
+                {
+                    ClearHighlight(childPanel);
+                }
+            }
+        }
+        private Border FindBorderByName(Panel panel, string name)
+        {
+            foreach (var child in panel.Children)
+            {
+                if (child is Border border && border.Name == name)
+                {
+                    return border;
+                }
+                else if (child is Panel childPanel)
+                {
+                    Border found = FindBorderByName(childPanel, name);
+                    if (found != null)
+                    {
+                        return found;
+                    }
+                }
+            }
+            return null;
         }
         private void UpdateDifficulty()
         {

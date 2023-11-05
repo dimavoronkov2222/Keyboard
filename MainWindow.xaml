@@ -70,7 +70,7 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="3">
+        <Grid Name="KeyboardGrid" Grid.Row="3">
             <StackPanel Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
                     <Grid Height="50" Width="50">
@@ -386,37 +386,37 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="__" Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="`" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_1" Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="1" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_2" Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="2" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFE6F077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_3" Background="#FFE6F077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="3" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF7FF077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_4" Background="#FF7FF077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="4" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_5" Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="5" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="_6" Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="6" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
@@ -458,42 +458,42 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Grid Height="50" Width="75">
-                        <Border Background="#FFB5B5B5" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="Tab" Background="#FFB5B5B5" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="15" HorizontalAlignment="Center" Text="Tab" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="Q" Background="#FFF07795" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="q" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFE6F077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="W" Background="#FFE6F077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="w" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF7FF077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="E" Background="#FF7FF077" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="e" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="R" Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="r" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="T" Background="#FF77BEF0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="t" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFDB77F0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="Y" Background="#FFDB77F0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="y" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
                     <Grid Height="50" Width="50">
-                        <Border Background="#FFDB77F0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
+                        <Border x:Name="U" Background="#FFDB77F0" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="2">
                             <TextBlock FontSize="30" HorizontalAlignment="Center" Text="u" VerticalAlignment="Center"/>
                         </Border>
                     </Grid>
