@@ -14,17 +14,19 @@ namespace Keyboard
         private string typedText;
         private DateTime startTime;
         private bool isSessionActive;
+        int number;
         public MainWindow()
         {
             InitializeComponent();
             isSessionActive = false;
             this.KeyDown += new KeyEventHandler(Window_KeyDown);
+            DifficultySlider.ValueChanged += (s, e) => UpdateDifficulty();
         }
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             if (!isSessionActive)
             {
-                generatedText = generatetext();
+                generatedText = generatetext(number);
                 ExpectedText.Text = generatedText;
                 typedText = "";
                 InputText.Text = typedText;
@@ -62,7 +64,7 @@ namespace Keyboard
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (isSessionActive)
-            {   
+            {
                 if (e.Key == Key.LeftShift || e.Key == Key.RightShift || e.Key == Key.CapsLock)
                 {
                     UpdateKeyboardLayout();
@@ -76,10 +78,17 @@ namespace Keyboard
                 }
             }
         }
-        private string generatetext()
+        private string generatetext(int difficulty)
         {
-            string text = "DSA";
-            return text;
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Random random = new Random();
+            StringBuilder text = new StringBuilder();
+            for (int i = 0; i < difficulty; i++)
+            {
+                int index = random.Next(alphabet.Length);
+                text.Append(alphabet[index]);
+            }
+            return text.ToString();
         }
         private void UpdateStatistics()
         {
@@ -138,11 +147,38 @@ namespace Keyboard
         }
         private void UpdateDifficulty()
         {
-            // обновление сложности в соответствии с настройками пользователя
+            int difficulty = (int)DifficultySlider.Value;
+            generatedText = generatetext(difficulty);
+            ExpectedText.Text = generatedText;
+            diffi.Text = difficulty.ToString();
+            number = difficulty;
         }
         private void UpdateKeyboardLayout()
         {
-            // обновление отображения клавиатуры при нажатии клавиш Shift и Caps Lock
+            bool isShiftPressed = System.Windows.Input.Keyboard.IsKeyDown(Key.LeftShift) || System.Windows.Input.Keyboard.IsKeyDown(Key.RightShift);
+            bool isCapsLockToggled = System.Windows.Input.Keyboard.IsKeyToggled(Key.CapsLock);
+            if (isShiftPressed || isCapsLockToggled)
+            {
+                foreach (var border in KeyboardGrid.Children.OfType<Border>())
+                {
+                    var textBlock = border.Child as TextBlock;
+                    if (textBlock != null)
+                    {
+                        textBlock.Text = textBlock.Text.ToUpper();
+                    }
+                }
+            }
+            else
+            {
+                foreach (var border in KeyboardGrid.Children.OfType<Border>())
+                {
+                    var textBlock = border.Child as TextBlock;
+                    if (textBlock != null)
+                    {
+                        textBlock.Text = textBlock.Text.ToLower();
+                    }
+                }
+            }
         }
         private void DisableControls()
         {
